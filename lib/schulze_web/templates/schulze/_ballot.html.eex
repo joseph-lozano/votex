@@ -7,16 +7,14 @@
 
   <%= f = form_for :ballot, "#", [phx_submit: :submit] %>
     <% candidate_count = length(@candidates) %>
-    <div class="row">
 
       <%= for candidate <- @candidates do %>
-        <div class="col-auto mb-3">
+        <div class="row">
           <label class="form-label"> <%= candidate %>
           </label>
           <%=select f, candidate, (0..candidate_count), class: "form-control" %>
         </div>
       <% end %>
-    </div>
       <%= if @private? do %>
     <div class="row">
       <div class="col-3">
