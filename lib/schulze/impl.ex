@@ -181,7 +181,7 @@ defmodule Schulze.Impl do
 
     missing_candidates = candidates -- List.flatten(results)
 
-    (results ++ [missing_candidates])
+    results ++ [missing_candidates]
   end
 
   def transpose_map(map) do

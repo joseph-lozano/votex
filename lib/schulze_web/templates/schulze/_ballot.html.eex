@@ -1,26 +1,26 @@
-
-  <h4>Ballot</h4>
-
-  <p>Assign your most preferred candidate the highest number. Ties are OK</p>
-
-  <p>Current Votes: <span><%= @votes  %></span><p>
-
-  <%= f = form_for :ballot, "#", [phx_submit: :submit] %>
+<h4>Ballot</h4>
+<p>Assign your most preferred candidate the highest number. Ties are OK</p>
+<p>Current Votes: <span><%= @votes  %></span>
+  <p>
+    <%= f = form_for :ballot, "#", [phx_submit: :submit] %>
     <% candidate_count = length(@candidates) %>
-
-      <%= for candidate <- @candidates do %>
-        <div class="row">
+    <%= for candidate <- @candidates do %>
+      <div class="row my-2">
+        <div class="col-5">
           <label class="form-label"> <%= candidate %>
           </label>
-          <%=select f, candidate, (0..candidate_count), class: "form-control" %>
         </div>
-      <% end %>
-      <%= if @private? do %>
-    <div class="row">
-      <div class="col-3">
+        <div class="col-5">
+          <%=select f, candidate, (0..candidate_count), class: "form-select" %>
+        </div>
+      </div>
+    <% end %>
+    <%= if @private? do %>
+      <div class="row">
+        <div class="col-3">
           <label class="form-label">password
           </label>
-        <%= text_input f, :password, class: "form-control" %>
+          <%= text_input f, :password, class: "form-control" %>
         </div>
       </div>
     <% end %>
