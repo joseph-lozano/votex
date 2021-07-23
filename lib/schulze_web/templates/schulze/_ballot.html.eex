@@ -1,6 +1,8 @@
 
   <h4>Ballot</h4>
 
+  <p>Assign your most preferred candidate the highest number. Ties are OK</p>
+
   <p>Current Votes: <span><%= @votes  %></span><p>
 
   <%= f = form_for :ballot, "#", [phx_submit: :submit] %>
